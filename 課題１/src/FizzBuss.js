@@ -10,3 +10,13 @@ function fizz_buzz(number){
 
     return number;
 }
+
+function fizzBuzzExe() {
+    let num = document.getElementById("number").value;
+    let container = document.getElementById("container");
+    for (let i = 0; i < num; i++) {
+        let item = document.createElement("li");
+        item.textContent = fizz_buzz(i)
+        container.appendChild(item)
+    }
+}
