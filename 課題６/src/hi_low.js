@@ -22,7 +22,7 @@ class HiLow{
     hi_low(number){
         this.trycount++;
         if(number == this.target){
-            return "あたり:"+number+" -> 試行回数（"+this.trycount+"）";
+            return "正解:・・・"+this.trycount+"回で当てました";
         } else if (number > this.target) {
             return "もっと下:"+number;
         }else{
