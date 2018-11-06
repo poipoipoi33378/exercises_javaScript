@@ -79,16 +79,16 @@ describe("sort", function () {
     });
 
     it("sum and average", function () {
-        let arry = [20, 31, 42, 5, 38, 38, 31, 100];
+        let arry = [20, 31, 42, 13, 5, 38];
 
-        expect(sum(arry)).toEqual(305)
-        expect(average(arry)).toEqual(38.125)
+        expect(sum(arry)).toEqual(149)
+        expect(Math.floor(average(arry))).toEqual(24)
     });
 
     it("max and min", function () {
-        let arry = [20, 31, 42, 5, 38, 38, 31, 100];
+        let arry = [20, 31, 42, 13, 5, 38];
 
-        expect(max(arry)).toEqual(100)
+        expect(max(arry)).toEqual(42)
         expect(min(arry)).toEqual(5)
     });
     it("reverse", function () {

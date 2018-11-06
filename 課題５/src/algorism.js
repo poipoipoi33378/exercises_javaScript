@@ -1,3 +1,19 @@
+function algorismExe(){
+    let input = document.getElementById("input_val").value;
+    let arrayStr = input.split(",");
+    let array = [];
+    arrayStr.forEach(element => {
+        array.push(parseInt(element))
+    });
+    document.getElementById("sum").textContent = sum(array);
+    document.getElementById("ave").textContent = average(array);
+    document.getElementById("max").textContent = max(array);
+    document.getElementById("min").textContent = min(array);
+    document.getElementById("bubble_sort").textContent = bubbleSort(array);
+    document.getElementById("quiq_sort_reverse").textContent = reverse(quickSort(array));
+
+}
+
 function bubbleSort(input){
     
     let target;
