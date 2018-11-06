@@ -1,3 +1,7 @@
 function recursion(input){
-    return 15
+
+    if(input == 1){
+        return 1
+    }
+    return input + recursion(input-1)
 }
