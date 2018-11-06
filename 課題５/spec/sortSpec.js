@@ -91,5 +91,14 @@ describe("sort", function () {
         expect(max(arry)).toEqual(100)
         expect(min(arry)).toEqual(5)
     });
+    it("reverse", function () {
+        let arry = [20, 31, 42, 5, 38];
 
+        let result = reverse(arry);
+        expect(result[0]).toEqual(38)
+        expect(result[1]).toEqual(5)
+        expect(result[2]).toEqual(42)
+        expect(result[3]).toEqual(31)
+        expect(result[4]).toEqual(20)
+    });
 });

@@ -80,3 +80,13 @@ function min(input) {
     }
     return result;
 }
+
+function reverse(input){
+
+    let result = [];
+
+    for (let i = 0; i < input.length; i++) {
+        result.push(input[input.length-i-1])
+    }
+    return result;
+}
