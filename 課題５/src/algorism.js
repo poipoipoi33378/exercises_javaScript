@@ -1,19 +1,3 @@
-function algorismExe(){
-    let input = document.getElementById("input_val").value;
-    let arrayStr = input.split(",");
-    let array = [];
-    arrayStr.forEach(element => {
-        array.push(parseInt(element))
-    });
-    document.getElementById("sum").textContent = sum(array);
-    document.getElementById("ave").textContent = average(array);
-    document.getElementById("max").textContent = max(array);
-    document.getElementById("min").textContent = min(array);
-    document.getElementById("bubble_sort").textContent = bubbleSort(array);
-    document.getElementById("quiq_sort_reverse").textContent = reverse(quickSort(array));
-
-}
-
 function bubbleSort(input){
     
     let target;
@@ -98,11 +82,25 @@ function min(input) {
 }
 
 function reverse(input){
-
     let result = [];
-
     for (let i = 0; i < input.length; i++) {
         result.push(input[input.length-i-1])
     }
     return result;
 }
+
+function algorismExe() {
+    let input = document.getElementById("input_val").value;
+    let arrayStr = input.split(",");
+    let array = [];
+    arrayStr.forEach(element => {
+        array.push(parseInt(element))
+    });
+    document.getElementById("sum").textContent = "合計:" + sum(array);
+    document.getElementById("ave").textContent = "平均:" + average(array);
+    document.getElementById("max").textContent = "最大:" + max(array);
+    document.getElementById("min").textContent = "最小:" + min(array);
+    document.getElementById("bubble_sort").textContent = "大きい順（バブルソート）:" + bubbleSort(array);
+    document.getElementById("quiq_sort_reverse").textContent = "小さい順（クイックソート）:" + reverse(quickSort(array));
+}
+
