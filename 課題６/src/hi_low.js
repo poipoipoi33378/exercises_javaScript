@@ -10,7 +10,8 @@ function hi_lowExe(){
     let item = document.createElement("li");
 
     item.textContent = hilow.hi_low(parseInt(input));
-    container.appendChild(item)
+    // container.appendChild(item)
+    container.insertBefore(item, container.firstChild);
 }
 
 class HiLow{
