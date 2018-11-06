@@ -60,3 +60,23 @@ function sum(input){
 function average(input) {
     return sum(input)/input.length;
 }
+
+function max(input) {
+    let result = input[0];
+    for (let i = 1; i < input.length; i++) {
+        if(result < input[i]){
+            result = input[i];
+        }
+    }
+    return result;
+}
+
+function min(input) {
+    let result = input[0];
+    for (let i = 1; i < input.length; i++) {
+        if (result > input[i]) {
+            result = input[i];
+        }
+    }
+    return result;
+}

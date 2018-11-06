@@ -85,4 +85,11 @@ describe("sort", function () {
         expect(average(arry)).toEqual(38.125)
     });
 
+    it("max and min", function () {
+        let arry = [20, 31, 42, 5, 38, 38, 31, 100];
+
+        expect(max(arry)).toEqual(100)
+        expect(min(arry)).toEqual(5)
+    });
+
 });
