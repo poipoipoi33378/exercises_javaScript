@@ -13,6 +13,7 @@ class HitAndBlow{
         this.result = {hit:0,blow:0};
         this.target = [];
         this.setTarget();
+        this.count = 0;
     }
 
     setTarget(){
@@ -30,6 +31,7 @@ class HitAndBlow{
     }
 
     tryCode(input){
+        this.count++;
         this.result.hit = 0;
         this.result.blow = 0;
 
@@ -40,5 +42,43 @@ class HitAndBlow{
                 this.result.blow++;
             }
         }
+        return this.checkResult();
     }
+
+    checkResult(){
+        if (this.target.length == this.result.hit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+let hit_blow;
+
+function init() {
+    hit_blow = new HitAndBlow();
+}
+
+function hi_lowExe() {
+    let input = document.getElementById("input_val").value;
+    let arrayStr = input.split("");
+    let array = [];
+
+    arrayStr.forEach(element => {
+        array.push(parseInt(element))
+    });
+
+    let container = document.getElementById("container");
+    let item = document.createElement("li");
+
+    let result;
+    if(hit_blow.tryCode(array)){
+        result = hit_blow.count + "回で正解"
+    }else{
+        result = "外れ: " + hit_blow.result.hit + "Hits," + hit_blow.result.blow + "Blow";
+    }
+    
+    item.textContent = result;
+    container.insertBefore(item, container.firstChild);
 }

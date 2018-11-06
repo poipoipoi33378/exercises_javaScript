@@ -56,32 +56,28 @@ describe("HitAndBlow", function () {
 
     it("tryCode 4hit 0blow", function () {
         let hb = new HitAndBlow();
-
         hb.target = [1,2,3,4];
-        hb.tryCode([1,2,3,4]);
 
+        expect(hb.tryCode([1, 2, 3, 4])).toEqual(true);
         expect(hb.result.hit).toEqual(4);
         expect(hb.result.blow).toEqual(0);
     });
 
     it("tryCode 0hit 4blow", function () {
         let hb = new HitAndBlow();
-
         hb.target = [1, 2, 3, 4];
-        hb.tryCode([4, 3, 2, 1]);
 
+        expect(hb.tryCode([4, 3, 2, 1])).toEqual(false);
         expect(hb.result.hit).toEqual(0);
         expect(hb.result.blow).toEqual(4);
     });
 
     it("tryCode 2hit 2blow", function () {
         let hb = new HitAndBlow();
-
         hb.target = [1, 2, 3, 4];
-        hb.tryCode([1, 4, 3, 2]);
 
+        expect(hb.tryCode([1, 4, 3, 2])).toEqual(false);
         expect(hb.result.hit).toEqual(2);
         expect(hb.result.blow).toEqual(2);
     });
-
 });

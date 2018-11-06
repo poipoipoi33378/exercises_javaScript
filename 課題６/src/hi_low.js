@@ -1,19 +1,3 @@
-let hilow;
-
-function init(){
-    hilow = new HiLow();
-}
-
-function hi_lowExe(){
-    let input = parseInt(document.getElementById("input_val").value);
-    let container = document.getElementById("container");
-    let item = document.createElement("li");
-
-    item.textContent = hilow.hi_low(parseInt(input));
-    // container.appendChild(item)
-    container.insertBefore(item, container.firstChild);
-}
-
 class HiLow{
     constructor(){
         this.target = Math.floor(Math.random() * 100);
@@ -30,4 +14,20 @@ class HiLow{
             return "もっと上:" + number;
         }
     }
+}
+
+let hilow;
+
+function init() {
+    hilow = new HiLow();
+}
+
+function hi_lowExe() {
+    let input = parseInt(document.getElementById("input_val").value);
+    let container = document.getElementById("container");
+    let item = document.createElement("li");
+
+    item.textContent = hilow.hi_low(parseInt(input));
+    // container.appendChild(item)
+    container.insertBefore(item, container.firstChild);
 }
