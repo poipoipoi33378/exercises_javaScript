@@ -16,11 +16,29 @@ function bubbleSort(input){
     return array;
 }
 
-function quickSort(input) {
+function quickSort(array) {
 
-    let pivot = 20;
-    let left = [5];
-    let right = [31,38,42];
+    if(array.length == 1){
+        return array[0] 
+    }
+
+    let pivot = array[0];
+    let left = [];
+    let right = [];
+
+    for(let i=1;i<array.length;i++){
+        if(array[i] <= pivot){
+            left.push(array[i])
+        }else{
+            right.push(array[i])
+        }
+    }
+    if (left.length > 0) {
+        left = quickSort(left);
+    }
+    if (right.length > 0) {
+        right = quickSort(right);
+    }
 
     let result = [];
     result = result.concat(left);
@@ -28,4 +46,17 @@ function quickSort(input) {
     result = result.concat(right);
 
     return result;
+}
+
+function sum(input){
+    
+    let sum = 0;
+    for(let i=0;i<input.length;i++){
+        sum = input[i] + sum;
+    }
+    return sum;
+}
+
+function average(input) {
+    return sum(input)/input.length;
 }
