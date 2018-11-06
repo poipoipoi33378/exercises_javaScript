@@ -12,7 +12,7 @@ describe("Hit&Blow", function () {
         }
     });
 
-    it("tryCode", function () {
+    it("tryCode 4hit 0blow", function () {
         let hb = new HitAndBlow();
 
         hb.target = [1,2,3,4];
@@ -20,7 +20,16 @@ describe("Hit&Blow", function () {
 
         expect(hb.result.hit).toEqual(4);
         expect(hb.result.blow).toEqual(0);
+    });
 
+    it("tryCode 0hit 4blow", function () {
+        let hb = new HitAndBlow();
+
+        hb.target = [1, 2, 3, 4];
+        hb.tryCode([4, 3, 2, 1]);
+
+        expect(hb.result.hit).toEqual(0);
+        expect(hb.result.blow).toEqual(4);
     });
 
 });

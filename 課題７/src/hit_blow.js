@@ -20,7 +20,15 @@ class HitAndBlow{
     }
 
     tryCode(input){
-        this.result.hit = 4;
+        this.result.hit = 0;
         this.result.blow = 0;
+
+        for(let i=0;i<this.target.length;i++){
+            if(this.target[i] == input[i]){
+                this.result.hit++;
+            }else if(this.target.indexOf(input[i])>=0){
+                this.result.blow++;
+            }
+        }
     }
 }
