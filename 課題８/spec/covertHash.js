@@ -1,21 +1,13 @@
-function toUry(array){
+function toUry(hash){
  
-    hash ={
-        "main":
-        {
-            "first": { "text": "uryyyy!!bar" },
-            "second": { "text": "fizzbuzz", "child": { "text": "uryyyy!!bar" } }
-        },
-        "sub":
-        {
-            "first": { "text": "fizzbuzz", "child": { "text": "uryyyy!!bar" } },
-            "second":
-            {
-                "third": { "text": "baruryyyy!!", "child": { "text": "uryyyy!!bar" } },
-                "forth": { "child": { "text": "jit_uryyyy!!_uryyyy!!" } }
+    for(let key in hash){
+        if(key == "text"){
+            while (hash[key].match("foo")!=null){
+                hash[key] = hash[key].replace("foo", "uryyyy!!");
             }
-        },
-        "text": "uryyyy!!fava"
+        }else{
+            toUry(hash[key]);
+        }
     }
 
     return hash;
