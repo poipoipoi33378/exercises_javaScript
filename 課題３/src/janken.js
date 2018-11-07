@@ -2,21 +2,37 @@ const GU = "グー"
 const CHO = "チョキ"
 const PA = "パー"
 
+class JankenTable{
+    constructor(){
+        this.judgeTable = {
+            "グー": {
+                "パー": "コンピュータの勝ち",
+                "グー": "あいこ",
+                "チョキ": "あなたの勝ち"
+            },
+            "パー": {
+                "チョキ": "コンピュータの勝ち",
+                "パー": "あいこ",
+                "グー": "あなたの勝ち"
+            },
+            "チョキ": {
+                "グー": "コンピュータの勝ち",
+                "チョキ": "あいこ",
+                "パー": "あなたの勝ち"
+            },
+        }
+    }
+
+    judge(your,computer){
+        return this.judgeTable[your][computer];
+    }
+}
+
 class Janken{
     constructor(){
         this.your = "";
         this.computer = "";
-        this.judgeTable = {
-            "グー": { "パー": "コンピュータの勝ち", 
-                     "グー": "あいこ",
-                     "チョキ": "あなたの勝ち" },
-            "パー": { "チョキ": "コンピュータの勝ち",
-                     "パー": "あいこ",
-                     "グー":"あなたの勝ち"},
-            "チョキ": { "グー" : "コンピュータの勝ち",
-                     "チョキ": "あいこ" ,
-                     "パー":"あなたの勝ち"},
-        }
+        this.table = new JankenTable();
     }
 
     setYour(next){
@@ -36,7 +52,7 @@ class Janken{
     }
 
     judge(){
-        return this.judgeTable[this.your][this.computer];
+        return this.table.judge(this.your,this.computer);
     }
 };
 
