@@ -1,10 +1,19 @@
 function stringHash(s){
-    let h = {};
+
     let elemnt = s.split(" ")
-    elemnt.forEach(str => {
-        h[str] = h[str]? h[str]+1 : 1 
+    return countElemnts(elemnt);
+}
+
+function countElemnts(elemnt) {
+    let h = {};
+    elemnt.forEach(key => {
+        countKey(h, key);
     });
     return h;
+}
+
+function countKey(h, key) {
+    h[key] = h[key] ? h[key] + 1 : 1;
 }
 
 function stringhashExe() {
