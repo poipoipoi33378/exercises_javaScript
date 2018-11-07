@@ -1,14 +1,21 @@
 function fizz_buzz(number){
 
-    if (((number % 3) == 0)&&((number % 5) == 0)) {
+    if (checkFizz(number) && checkBuzz(number)) {
         return "FizzBuzz"
-    } else if((number % 3) == 0){
+    } else if(checkFizz(number)){
         return "Fizz"
-    } else if ((number % 5) == 0) {
+    } else if (checkBuzz(number)) {
         return "Buzz"
     }
-
     return number;
+}
+
+function checkFizz(number) {
+    return (number % 3) == 0;
+}
+
+function checkBuzz(number) {
+    return (number % 5) == 0;
 }
 
 function fizzBuzzExe() {
