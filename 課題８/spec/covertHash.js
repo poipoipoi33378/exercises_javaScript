@@ -1,7 +1,7 @@
 function toUry(hash){
  
     for(let key in hash){
-        if(key == "text"){
+        if ((key == "text") && (typeof (hash[key]) == "string")){
             hash[key] = replaceText(hash[key], "foo", "uryyyy!!");
         }else{
             if(typeof(hash[key]) == "object"){

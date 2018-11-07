@@ -15,7 +15,8 @@ describe("convertHash", function () {
             },
             "text" : "foofava",
             "last": {   "text": "foofoofoofoofoofoo" ,
-                        "text1":"foo"},
+                        "text1":"foo",},
+            "test" : { "text": {"text":"foo"}}
         };
         result = toUry(hash);
 
@@ -30,5 +31,6 @@ describe("convertHash", function () {
         expect(result.text).toEqual("uryyyy!!fava");
         expect(result.last.text).toEqual("uryyyy!!uryyyy!!uryyyy!!uryyyy!!uryyyy!!uryyyy!!");
         expect(result.last.text1).toEqual("foo");
+        expect(result.test.text.text).toEqual("uryyyy!!");
     });
 });
