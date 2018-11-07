@@ -4,7 +4,9 @@ function toUry(hash){
         if(key == "text"){
             hash[key] = replaceText(hash[key], "foo", "uryyyy!!");
         }else{
-            toUry(hash[key]);
+            if(typeof(hash[key]) == "object"){
+                toUry(hash[key]);
+            }
         }
     }
     return hash;
