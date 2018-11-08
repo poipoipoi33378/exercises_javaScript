@@ -1,15 +1,21 @@
 function toUry(hash){
  
     for(let key in hash){
-        if ((key == "text") && (typeof (hash[key]) == "string")){
+        if (isTextTerminate(key,hash)){
             hash[key] = replaceText(hash[key], "foo", "uryyyy!!");
-        }else{
-            if(typeof(hash[key]) == "object"){
-                toUry(hash[key]);
-            }
+        }else if (isHash(key,hash)){
+            toUry(hash[key]);
         }
     }
     return hash;
+}
+
+function isHash(key, hash){
+    return (typeof (hash[key]) == "object")
+}
+
+function isTextTerminate(key,hash){
+    return (key == "text") && (typeof (hash[key]) == "string")
 }
 
 function replaceText(obj, from, to){
