@@ -3,6 +3,9 @@ class GenerateRandom{
         return Math.floor(Math.random() * 10)
     }
 }
+
+const NumberOfDigits = 4;
+
 class HitAndBlow{
     constructor(nextNumber=null){
         if(nextNumber == null){
@@ -11,23 +14,30 @@ class HitAndBlow{
             this.nextNumber = nextNumber;
         }
         this.result = {hit:0,blow:0};
-        this.target = [];
-        this.setTarget();
+        this.target = this.getTarget();
         this.count = 0;
     }
 
-    setTarget(){
-        this.target.push(this.nextNumber.number0to9());
-        for (let i = 0; i < 3; i++) {
-            let num = this.nextNumber.number0to9();
-            for (let j = 0; j < 4; j++) {
-                if (this.target.indexOf(num) < 0) {
-                    break;
-                }
-                num = (num+1)%9;
-            }
-            this.target.push(num);
+    getTarget(){
+        let target = [];
+        for (let i = 0; i < NumberOfDigits; i++) {
+            let num = this.selectNextNumber(target, NumberOfDigits);
+            target.push(num);
         }
+        return target;
+    }
+
+    selectNextNumber(target,maxDigit){
+        let num = this.nextNumber.number0to9();
+        for (let j = 0; j < maxDigit; j++) {
+            if (target.indexOf(num) < 0) {
+                return num;
+            }
+            num = this.getNumber0to9(num + 1);
+        }
+    }
+    getNumber0to9(num){
+        return num % 9;
     }
 
     tryCode(input){
