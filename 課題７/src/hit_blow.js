@@ -4,8 +4,6 @@ class GenerateRandom{
     }
 }
 
-const NumberOfDigits = 4;
-
 class HitAndBlow{
     constructor(nextNumber=null){
         if(nextNumber == null){
@@ -14,14 +12,14 @@ class HitAndBlow{
             this.nextNumber = nextNumber;
         }
         this.result = {hit:0,blow:0};
-        this.target = this.getTarget();
+        this.target = this.getTarget(4);
         this.count = 0;
     }
 
-    getTarget(){
+    getTarget(maxDigit){
         let target = [];
-        for (let i = 0; i < NumberOfDigits; i++) {
-            let num = this.selectNextNumber(target, NumberOfDigits);
+        for (let i = 0; i < maxDigit; i++) {
+            let num = this.selectNextNumber(target, maxDigit);
             target.push(num);
         }
         return target;
@@ -42,17 +40,21 @@ class HitAndBlow{
 
     tryCode(input){
         this.count++;
+        this.countHitandBlow(input);
+        return this.checkResult();
+    }
+
+    countHitandBlow(input){
         this.result.hit = 0;
         this.result.blow = 0;
 
-        for(let i=0;i<this.target.length;i++){
-            if(this.target[i] == input[i]){
+        for (let i = 0; i < this.target.length; i++) {
+            if (this.target[i] == input[i]) {
                 this.result.hit++;
-            }else if(this.target.indexOf(input[i])>=0){
+            } else if (this.target.indexOf(input[i]) >= 0) {
                 this.result.blow++;
             }
         }
-        return this.checkResult();
     }
 
     checkResult(){
